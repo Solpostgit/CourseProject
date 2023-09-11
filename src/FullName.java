@@ -22,6 +22,6 @@ public class FullName {
     }
 
     public String toString() {
-        return " Фамилия " + this.surname + "Имя " + this.name + "Отчество " + this.patronymic;
+        return this.surname + " " + this.name + " " + this.patronymic + " ";
     }
 }

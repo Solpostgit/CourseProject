@@ -1,20 +1,20 @@
 public class Employee {
-    public static int count = 1;
-    private int id;
+    public static int count = 0;
+    //int id;
     FullName fullName;
     private int department;
     private int salary;
 
-    public Employee(int id, FullName fullName, int department, int salary) {
-        this.id = count;
-        count++;
+    public Employee(FullName fullName, int department, int salary) {
+        this.count = count + 1;
+        //count++;
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
     }
-/*
-    public int getId() {
-        return id;
+    /*
+    public int getCount() {
+        return count;
     } */
     FullName getFullName() {
         return fullName;
@@ -36,6 +36,6 @@ public class Employee {
         this.salary = salary;
     }
     public String toString() {
-        return "ID " + this.id + this.fullName + " Отдел " + this.department + " Зарплата " + this.salary;
+        return this.fullName + " Отдел " + this.department + " Зарплата " + this.salary;
     }
 }
