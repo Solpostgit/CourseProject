@@ -12,10 +12,10 @@ public class Employee {
         this.department = department;
         this.salary = salary;
     }
-
+/*
     public int getId() {
         return id;
-    }
+    } */
     FullName getFullName() {
         return fullName;
     }
