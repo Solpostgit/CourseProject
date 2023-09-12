@@ -23,5 +23,10 @@ public class Main {
         employee1.setSalary(95000); //меняем зарплату, через сеттер
 
         System.out.println(employee1);
+
+        Employee[] storage = new Employee[10];
+        for (int element:storage) {
+            System.out.println(Arrays.toString(storage));
+        }
     }
 }
