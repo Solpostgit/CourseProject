@@ -1,16 +1,17 @@
 public class Employee {
-    static int count = 0;
+    static int count = 1;
     private int id;
     FullName fullName;
     private int department;
     private int salary;
 
     public Employee(FullName fullName, int department, int salary) {
-        count++;
+
+        this.id = count;
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
-        this.id = count;
+        count++;
     }
 
     public int getId() {

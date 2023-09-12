@@ -15,8 +15,13 @@ public class Main {
 
         System.out.println(employee1);
         System.out.println(employee2);
-        System.out.println(employee5);
         System.out.println(employee3);
         System.out.println(employee4);
+        System.out.println(employee5);
+
+        employee1.setDepartment(5); //меняем отдел, через сеттер
+        employee1.setSalary(95000); //меняем зарплату, через сеттер
+
+        System.out.println(employee1);
     }
 }
