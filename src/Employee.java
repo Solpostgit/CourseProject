@@ -1,21 +1,22 @@
 public class Employee {
-    public static int count = 0;
-    //int id;
+    static int count = 0;
+    private int id;
     FullName fullName;
     private int department;
     private int salary;
 
     public Employee(FullName fullName, int department, int salary) {
-        this.count = count + 1;
-        //count++;
+        count++;
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
+        this.id = count;
     }
-    /*
-    public int getCount() {
-        return count;
-    } */
+
+    public int getId() {
+        return id;
+    }
+
     FullName getFullName() {
         return fullName;
     }
@@ -35,7 +36,8 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
     public String toString() {
-        return this.fullName + " Отдел " + this.department + " Зарплата " + this.salary;
+        return "ID:" + this.id + " " + this.fullName + " Отдел " + this.department + " Зарплата " + this.salary;
     }
 }
