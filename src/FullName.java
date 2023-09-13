@@ -1,4 +1,4 @@
-public class FullName {
+/*public class FullName {
     private String surname;
     private String name;
     private String patronymic;
@@ -25,3 +25,4 @@ public class FullName {
         return this.surname + " " + this.name + " " + this.patronymic + " ";
     }
 }
+*/

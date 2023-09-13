@@ -1,7 +1,6 @@
 public class Employee {
     static int count = 1;
     private int id;
-    //FullName fullName;
     private String surname;
     private String name;
     private String patronymic;
@@ -24,15 +23,15 @@ public class Employee {
     }
 
     public String getSurname() {
-        return this.surname;
+        return surname;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public String getPatronymic() {
-        return this.patronymic;
+        return patronymic;
     }
 
     public int getDepartment() {
