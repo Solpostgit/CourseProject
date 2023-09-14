@@ -64,14 +64,18 @@ public class Main {
         }
     }
 
-    public static double changeDepartment(Employee[] arr, int dep) {
-        int departament = 0;
-        double sumSalary = 0;
+    public static void changeDepartment(Employee[] arr, int department) {
         for (int i = 0; i < arr.length; i++) {
-            sumSalary = sumSalary + arr[i].getSalary();
+            if (arr[i].getDepartment() == department) {
+                int minIndex = 0;
+                double minSal = 150000;
+                if (arr[i].getSalary() <= minSal) {
+                    minSal = arr[i].getSalary();
+                    minIndex = i;
+                }
+                System.out.println("Сотрудник с минимальной зарплатой в " + department + " отделе " + arr[minIndex]);
+            }
         }
-        System.out.println("Сумма затрат на зарплаты в месяц " + sumSalary);
-        return sumSalary;
     }
 
     public static void main(String[] args) {
@@ -121,6 +125,9 @@ public class Main {
         System.out.println("*** Повышенная сложность ***");
         System.out.println();
         indexSalary(storage, 1.1); //индексация зарплаты на 10%
+        System.out.println();
+        changeDepartment(storage, 3);
+        System.out.println();
 
 
         System.out.println(employee1.getSalary());
