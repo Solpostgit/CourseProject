@@ -37,6 +37,17 @@ public class Main {
         return maxSalary;
     }
 
+    public static double midleSalary(Employee[] arr) {
+        double sumSalary = 0;
+        int index = arr.length;
+        for (int i = 0; i < arr.length; i++) {
+            sumSalary = sumSalary + arr[i].getSalary();
+        }
+        double midleSalary = sumSalary / index;
+        System.out.println("Среднее значение зарплат " + midleSalary);
+        return midleSalary;
+    }
+
     public static void main(String[] args) {
 
         Employee[] storage = new Employee[10]; //поле типа Employee[10]
@@ -76,6 +87,9 @@ public class Main {
         minSalary(storage); // сотрудник с мин. зарплатой
         System.out.println();
         maxSalary(storage); // сотрудник с макс. зарплатой
+        System.out.println();
+        midleSalary(storage);
+        System.out.println();
 
         System.out.println(employee1.getSalary());
 
