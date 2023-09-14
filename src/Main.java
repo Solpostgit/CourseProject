@@ -13,8 +13,8 @@ public class Main {
 
     public static double minSalary(Employee[] arr) {
         double minSalary = 150000;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].getSalary() < minSalary) {
+        for (int i = 0; i < arr.length - 1 && arr[i].getSalary() != 0; i++) {
+            if (arr[i].getSalary() <= minSalary) {
                 minSalary = arr[i].getSalary();
                 System.out.println(arr[i]);
             }
@@ -35,7 +35,7 @@ public class Main {
         Employee employee6 = new Employee("Borisov", "Maksim", "Alekseevich", 3, 97000);
         Employee employee7 = new Employee("Alekseev", "Sergey", "Nikolaevich", 1, 92000);
         Employee employee8 = new Employee("Maksimova", "Alla", "Nikolaevna", 2, 93000);
-        Employee employee9 = new Employee("Nikolaeva", "Olga", "Anatolyevna", 4, 95000);
+        Employee employee9 = new Employee("Nikolaeva", "Olga", "Anatolyevna", 4, 90000);
         Employee employee10 = new Employee("Denisov", "Pavel", "Ivanovich", 5, 97000);
 
         System.out.println();
@@ -58,7 +58,7 @@ public class Main {
 
         calcSalary(storage); // метод сумма затрат на зарплаты в месяц
 
-        minSalary(storage);
+        minSalary(storage); // сотрудник с мин. зарплатой
 
         System.out.println(employee1.getSalary());
 
