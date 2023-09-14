@@ -55,7 +55,6 @@ public class Main {
     }
 
     public static void indexSalary(Employee[] arr, double index) {
-        //double Index = 0;
         double indexSal = 0;
         for (int i = 0; i < arr.length; i++) {
             indexSal = arr[i].getSalary() * index;
@@ -64,18 +63,40 @@ public class Main {
         }
     }
 
-    public static void changeDepartment(Employee[] arr, int department) {
+    public static void changeDepartment(Employee[] arr, int department, double indexSal) {
+        int indexEmployeeDep = 0; //количество сотрудников в отделе
+        int minIndex = 0;
+        int maxIndex = 0;
+        double minSal = 150000;
+        double maxSal = 90000;
+        double sumSalaryDep = 0; //сумма зарплат в отделе
+        double midleSalaryDep = 0; //средняя зарплата в отделе
+        double indexSalDep = 0; //индексированная зарплата
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].getDepartment() == department) {
-                int minIndex = 0;
-                double minSal = 150000;
-                if (arr[i].getSalary() <= minSal) {
+                indexEmployeeDep++;
+                if (arr[i].getSalary() <= minSal) { //сотрудник с мин зарплатой
                     minSal = arr[i].getSalary();
                     minIndex = i;
                 }
-                System.out.println("Сотрудник с минимальной зарплатой в " + department + " отделе " + arr[minIndex]);
+                if (arr[i].getSalary() >= maxSal) { //сотрудник с макс зарплатой
+                    maxSal = arr[i].getSalary();
+                    maxIndex = i;
+                }
+                sumSalaryDep = sumSalaryDep + arr[i].getSalary(); //сумма зарплат на отдел
+                midleSalaryDep = sumSalaryDep / indexEmployeeDep; //средняя зарплата по отделу
+                indexSalDep = arr[i].getSalary() * indexSal; //индексация зарплаты в отделе
+                arr[i].setSalary(indexSalDep);
+                System.out.println("Индексация зарплаты в отделе " + arr[i]);
+
             }
         }
+        System.out.println("Сотрудник с минимальной зарплатой в " + department + " отделе " + arr[minIndex]);
+        System.out.println("Сотрудник с максимальной зарплатой в " + department + " отделе " + arr[maxIndex]);
+        System.out.println("Сумма затрат на зарплату по " + department + " отделу " + sumSalaryDep);
+        System.out.println("Средняя зарплата по отделу " + midleSalaryDep);
+
+
     }
 
     public static void main(String[] args) {
@@ -91,7 +112,7 @@ public class Main {
         Employee employee7 = new Employee("Alekseev", "Sergey", "Nikolaevich", 1, 92000);
         Employee employee8 = new Employee("Maksimova", "Alla", "Nikolaevna", 2, 94000);
         Employee employee9 = new Employee("Nikolaeva", "Olga", "Anatolyevna", 4, 91000);
-        Employee employee10 = new Employee("Denisov", "Pavel", "Ivanovich", 5, 98000);
+        Employee employee10 = new Employee("Denisov", "Pavel", "Ivanovich", 3, 98000);
 
         System.out.println();
         employee1.setDepartment(5); //меняем отдел, через сеттер
@@ -126,7 +147,7 @@ public class Main {
         System.out.println();
         indexSalary(storage, 1.1); //индексация зарплаты на 10%
         System.out.println();
-        changeDepartment(storage, 3);
+        changeDepartment(storage, 3, 1.05); //выбираем отдел 3
         System.out.println();
 
 
