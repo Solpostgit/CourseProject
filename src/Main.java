@@ -12,8 +12,8 @@ public class Main {
     }
 
     public static double minSalary(Employee[] arr) {
-        double minSalary = 150000;
-        for (int i = 0; i < arr.length - 1 && arr[i].getSalary() != 0; i++) {
+        double minSalary = arr[0].getSalary();
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i].getSalary() <= minSalary) {
                 minSalary = arr[i].getSalary();
                 System.out.println(arr[i]);
