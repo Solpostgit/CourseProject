@@ -54,6 +54,26 @@ public class Main {
         }
     }
 
+    public static void indexSalary(Employee[] arr, double index) {
+        //double Index = 0;
+        double indexSal = 0;
+        for (int i = 0; i < arr.length; i++) {
+            indexSal = arr[i].getSalary() * index;
+            arr[i].setSalary(indexSal);
+            System.out.println(arr[i]);
+        }
+    }
+
+    public static double changeDepartment(Employee[] arr, int dep) {
+        int departament = 0;
+        double sumSalary = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sumSalary = sumSalary + arr[i].getSalary();
+        }
+        System.out.println("Сумма затрат на зарплаты в месяц " + sumSalary);
+        return sumSalary;
+    }
+
     public static void main(String[] args) {
 
         Employee[] storage = new Employee[10]; //поле типа Employee[10]
@@ -98,6 +118,10 @@ public class Main {
         System.out.println();
         listNames(storage); // Ф.И.О всех сотрудников
         System.out.println();
+        System.out.println("*** Повышенная сложность ***");
+        System.out.println();
+        indexSalary(storage, 1.1); //индексация зарплаты на 10%
+
 
         System.out.println(employee1.getSalary());
 
