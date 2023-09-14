@@ -143,16 +143,13 @@ public class Main {
         System.out.println();
         listNames(storage); // Ф.И.О всех сотрудников
         System.out.println();
+
+
         System.out.println("*** Повышенная сложность ***");
         System.out.println();
         indexSalary(storage, 1.1); //индексация зарплаты на 10%
         System.out.println();
         changeDepartment(storage, 3, 1.05); //выбираем отдел 3
         System.out.println();
-
-
-        System.out.println(employee1.getSalary());
-
-
     }
 }
