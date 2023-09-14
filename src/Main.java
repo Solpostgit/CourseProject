@@ -48,6 +48,12 @@ public class Main {
         return midleSalary;
     }
 
+    public static void listNames(Employee[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i].getSurname() + " " + arr[i].getName() + " " + arr[i].getPatronymic());
+        }
+    }
+
     public static void main(String[] args) {
 
         Employee[] storage = new Employee[10]; //поле типа Employee[10]
@@ -88,7 +94,9 @@ public class Main {
         System.out.println();
         maxSalary(storage); // сотрудник с макс. зарплатой
         System.out.println();
-        midleSalary(storage);
+        midleSalary(storage); // среднее значение зарплат
+        System.out.println();
+        listNames(storage); // Ф.И.О всех сотрудников
         System.out.println();
 
         System.out.println(employee1.getSalary());
