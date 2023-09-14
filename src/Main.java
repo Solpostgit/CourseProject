@@ -12,36 +12,51 @@ public class Main {
     }
 
     public static double minSalary(Employee[] arr) {
+        int minIndex = 0;
         double minSalary = arr[0].getSalary();
         for (int i = 1; i < arr.length; i++) {
             if (arr[i].getSalary() <= minSalary) {
                 minSalary = arr[i].getSalary();
-                System.out.println(arr[i]);
+                minIndex = i;
             }
         }
-        System.out.println("Минимальная зарплата " + minSalary);
+        System.out.println("Сотрудник с минимальной зарплатой " + arr[minIndex]);
         return minSalary;
+    }
+
+    public static double maxSalary(Employee[] arr) {
+        int maxIndex = 0;
+        double maxSalary = arr[0].getSalary();
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i].getSalary() >= maxSalary) {
+                maxSalary = arr[i].getSalary();
+                maxIndex = i;
+            }
+        }
+        System.out.println("Сотрудник с максимальной зарплатой " + arr[maxIndex]);
+        return maxSalary;
     }
 
     public static void main(String[] args) {
 
         Employee[] storage = new Employee[10]; //поле типа Employee[10]
 
-        Employee employee1 = new Employee("Ivanov", "Ivan", "Ivanovich", 3, 90000);
+        Employee employee1 = new Employee("Ivanov", "Ivan", "Ivanovich", 3, 91000);
         Employee employee2 = new Employee("Petrov", "Petr", "Petrovich", 2, 100000);
         Employee employee3 = new Employee("Sidorov", "Denis", "Sergeevich", 4, 95000);
         Employee employee4 = new Employee("Ivanova", "Anna", "Borisovna", 1, 93000);
         Employee employee5 = new Employee("Svetlaya", "Irina", "Pavlovna", 5, 90000);
         Employee employee6 = new Employee("Borisov", "Maksim", "Alekseevich", 3, 97000);
         Employee employee7 = new Employee("Alekseev", "Sergey", "Nikolaevich", 1, 92000);
-        Employee employee8 = new Employee("Maksimova", "Alla", "Nikolaevna", 2, 93000);
-        Employee employee9 = new Employee("Nikolaeva", "Olga", "Anatolyevna", 4, 90000);
-        Employee employee10 = new Employee("Denisov", "Pavel", "Ivanovich", 5, 97000);
+        Employee employee8 = new Employee("Maksimova", "Alla", "Nikolaevna", 2, 94000);
+        Employee employee9 = new Employee("Nikolaeva", "Olga", "Anatolyevna", 4, 91000);
+        Employee employee10 = new Employee("Denisov", "Pavel", "Ivanovich", 5, 98000);
 
         System.out.println();
         employee1.setDepartment(5); //меняем отдел, через сеттер
         employee1.setSalary(95000); //меняем зарплату, через сеттер
         System.out.println(employee1 + " //Изменили отдел и зарплату");
+        System.out.println();
 
         storage[0] = employee1; //передаём созданные объекты Employee в каждый элемент хранилища storage
         storage[1] = employee2;
@@ -55,10 +70,12 @@ public class Main {
         storage[9] = employee10;
 
         System.out.println(Arrays.toString(storage)); //список сотрудников со всеми имеющимися данными
-
-        calcSalary(storage); // метод сумма затрат на зарплаты в месяц
-
+        System.out.println();
+        calcSalary(storage); // сумма затрат на зарплаты в месяц
+        System.out.println();
         minSalary(storage); // сотрудник с мин. зарплатой
+        System.out.println();
+        maxSalary(storage); // сотрудник с макс. зарплатой
 
         System.out.println(employee1.getSalary());
 
