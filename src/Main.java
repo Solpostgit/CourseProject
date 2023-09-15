@@ -85,9 +85,6 @@ public class Main {
                 }
                 sumSalaryDep = sumSalaryDep + arr[i].getSalary(); //сумма зарплат на отдел
                 midleSalaryDep = sumSalaryDep / indexEmployeeDep; //средняя зарплата по отделу
-                indexSalDep = arr[i].getSalary() * indexSal; //индексация зарплаты в отделе
-                arr[i].setSalary(indexSalDep);
-                System.out.println("Индексация зарплаты в отделе " + arr[i]);
 
             }
         }
@@ -95,8 +92,34 @@ public class Main {
         System.out.println("Сотрудник с максимальной зарплатой в " + department + " отделе " + arr[maxIndex]);
         System.out.println("Сумма затрат на зарплату по " + department + " отделу " + sumSalaryDep);
         System.out.println("Средняя зарплата по отделу " + midleSalaryDep);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getDepartment() == department) {
+                indexSalDep = arr[i].getSalary() * indexSal; //индексация зарплаты в отделе
+                arr[i].setSalary(indexSalDep);
+                System.out.println("Индексация зарплаты в отделе " + arr[i]);
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getDepartment() == department) {
+                System.out.println("ID:" + arr[i].getId() + " " + arr[i].getSurname() + " " + arr[i].getName() + " " + arr[i].getPatronymic() + " " + arr[i].getSalary());
+                //все сотрудники отдела
+            }
+        }
+    }
 
-
+    public static void choiceNumber(Employee[] arr, double indexSalary) {
+        System.out.println("Зарплата меньше " + indexSalary);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getSalary() < indexSalary) { //зарплата меньше indexSalary
+                System.out.println("ID:" + arr[i].getId() + " " + arr[i].getSurname() + " " + arr[i].getName() + " " + arr[i].getPatronymic() + " " + arr[i].getSalary());
+            }
+        }
+        System.out.println("Зарплата больше " + indexSalary);
+        for (int i = 0; i < arr.length; i++) {
+                if (arr[i].getSalary() >= indexSalary) { //зарплата больше indexSalary
+                    System.out.println("ID:" + arr[i].getId() + " " + arr[i].getSurname() + " " + arr[i].getName() + " " + arr[i].getPatronymic() + " " + arr[i].getSalary());
+                }
+        }
     }
 
     public static void main(String[] args) {
@@ -149,7 +172,9 @@ public class Main {
         System.out.println();
         indexSalary(storage, 1.1); //индексация зарплаты на 10%
         System.out.println();
-        changeDepartment(storage, 3, 1.05); //выбираем отдел 3
+        changeDepartment(storage, 3, 1.05); //выбираем отдел (3), индексируем зарплату на 5% (1,05)
+        System.out.println();
+        choiceNumber(storage, 104000); //повышенная сложность 3. зарплата меньше/больше indexSalary
         System.out.println();
     }
 }
