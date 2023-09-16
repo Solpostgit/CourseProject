@@ -54,6 +54,8 @@ public class Main {
         }
     }
 
+    //***** Повышенная сложность *****
+
     public static void indexSalary(Employee[] arr, double index) {
         double indexSal = 0;
         for (int i = 0; i < arr.length; i++) {
